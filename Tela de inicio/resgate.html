@@ -6,6 +6,7 @@
   <title>Recuperar Senha | StockHUB</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    
    * {
   box-sizing: border-box;
 }
@@ -121,7 +122,6 @@ body {
 </head>
 <body>
 
-<!-- FORMULÁRIO ENVOLVIDO NA DIV CONTAINER -->
 <div class="container" id="formulario">
   <h2>Recuperar Senha</h2>
   <form onsubmit="enviar(event)">
@@ -131,7 +131,6 @@ body {
   </form>
 </div>
 
-<!-- TELA DE CONFIRMAÇÃO -->
 <div class="container confirmacao" id="confirmacao">
   <h2>Código enviado</h2>
   <p>Um código foi enviado ao e-mail fornecido.</p>
@@ -139,7 +138,7 @@ body {
 </div>
 
 <script>
-  // Obtem os elementos dos campos
+
   const cnpjInput = document.getElementById('cnpj');
   const emailInput = document.getElementById('email');
 
@@ -148,7 +147,7 @@ body {
   });
 
   function enviar(event) {
-    event.preventDefault(); // Impede o envio do formulário
+    event.preventDefault(); 
 
     const cnpj = cnpjInput.value.trim();
     const email = emailInput.value.trim();
@@ -163,7 +162,7 @@ body {
   }
 
   function voltar() {
-    window.location.href = "index.html"; // Ajuste o link conforme necessário
+    window.location.href = "index.html"; 
   }
 </script>
 
