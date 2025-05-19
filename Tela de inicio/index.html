@@ -44,7 +44,7 @@
   </div>
 
  <div class="dev-panel" id="dev-panel">
-  <!-- Linha 1: 2 devs -->
+  <!-- Linha 1 - 2 devs -->
   <div class="dev-row top-devs">
     <div class="dev-card">
       <img src="img/Nicolas.png" alt="Dev 1">
@@ -56,7 +56,7 @@
     </div>
   </div>
 
-  <!-- Linha 2: 3 devs -->
+  <!-- Linha 2 - 3 devs -->
   <div class="dev-row bottom-devs">
     <div class="dev-card">
       <img src="img/Enzo.png" alt="Dev 3">
@@ -115,7 +115,7 @@
     const usuario = document.querySelector('input[type="text"]').value.trim();
     const senha = document.querySelector('input[type="password"]').value.trim();
 
-    // Expressão regular para validar e-mail
+    // Expressão para validar e-mail
     const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!email || !usuario || !senha) {
@@ -128,7 +128,7 @@
       return;
     }
 
-    window.location.href = 'loading.html'; // Redireciona para a página de carregamento
+    window.location.href = 'loading.html'; 
   });
 
   // Redirecionamento para cadastro
@@ -153,7 +153,6 @@
     }, 1600);
   }, 2200);
 </script>
-
-
+  
 </body>
 </html>
