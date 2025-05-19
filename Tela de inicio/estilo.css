@@ -22,7 +22,7 @@ body {
   overflow: hidden;
   background-color: #0d0d0d;
   position: relative;
-  background-image: url('img/windows-chan.png'); /* coloque o caminho da imagem */
+  background-image: url('img/windows-chan.png'); 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -278,7 +278,7 @@ input[type="password"] {
 }
 .top-devs, .bottom-devs {
   display: flex;
-  justify-content: center; /* centraliza horizontalmente */
+  justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
 }
