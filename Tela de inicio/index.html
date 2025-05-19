@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Login logística</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilo.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <div class="container">
+    <div class="left-panel">
+      <h1 class="typing-text" id="titulo">Bem-vindo a StockHub!</h1>
+      <p class="typing-text" id="subtitulo">Gerencie seu estoque com facilidade.</p>
+      <button id="dev-btn">Conheça os desenvolvedores</button>
+    </div>
+
+    <div class="login-box">
+      <h2>Entrar</h2>
+      <form>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="Email" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Usuário" required>
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required>
+        </div>
+        <button type="submit">Entrar</button>
+        <button type="button">Cadastrar</button>
+
+        <div class="extras">
+          <a href="#" id="esqueci-senha">Esqueci a senha</a>
+          <a href="#" id="entrar-google">Entrar com Google</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+ <div class="dev-panel" id="dev-panel">
+  <!-- Linha 1: 2 devs -->
+  <div class="dev-row top-devs">
+    <div class="dev-card">
+      <img src="img/Nicolas.png" alt="Dev 1">
+      <p>Dev Front-end - Nicolas</p>
+    </div>
+    <div class="dev-card">
+      <img src="img/Emmily.png" alt="Dev 2">
+      <p>Dev Back-End - Emmily</p>
+    </div>
+  </div>
+
+  <!-- Linha 2: 3 devs -->
+  <div class="dev-row bottom-devs">
+    <div class="dev-card">
+      <img src="img/Enzo.png" alt="Dev 3">
+      <p>Desing UI/UX - Enzo</p>
+    </div>
+    <div class="dev-card">
+      <img src="img/Pedro.png" alt="Dev 4">
+      <p>Prototipador - Pedro</p>
+    </div>
+    <div class="dev-card">
+      <img src="img/Murilo.png" alt="Dev 5">
+      <p>Prototipador - Murilo</p>
+    </div>
+  </div>
+
+  <div class="dev-footer">
+    <button id="close-dev-panel">Fechar</button>
+  </div>
+</div>
+
+
+<script>
+  const btn = document.getElementById('dev-btn');
+  const panel = document.getElementById('dev-panel');
+  const closeBtn = document.getElementById('close-dev-panel');
+  const loginBtn = document.querySelector('.login-box button[type="submit"]');
+  const registerBtn = document.querySelector('.login-box button[type="button"]');
+  const titulo = document.getElementById('titulo');
+  const subtitulo = document.getElementById('subtitulo');
+
+  // Resgate de senha e login com Google
+  document.getElementById("esqueci-senha").addEventListener("click", function (e) {
+    e.preventDefault(); 
+    window.location.href = "resgate.html"; 
+  });
+
+  document.getElementById("entrar-google").addEventListener("click", function (e) {
+    e.preventDefault();
+    window.location.href = "google.html"; 
+  });
+
+  // Painel de desenvolvedores
+  btn.addEventListener('click', () => {
+    panel.classList.toggle('show');
+  });
+
+  closeBtn.addEventListener('click', () => {
+    panel.classList.remove('show');
+  });
+
+  // Redirecionamento com validação
+  loginBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const email = document.querySelector('input[type="email"]').value.trim();
+    const usuario = document.querySelector('input[type="text"]').value.trim();
+    const senha = document.querySelector('input[type="password"]').value.trim();
+
+    // Expressão regular para validar e-mail
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!email || !usuario || !senha) {
+      alert("Por favor, preencha todos os campos.");
+      return;
+    }
+
+    if (!emailValido.test(email)) {
+      alert("Por favor, insira um e-mail válido.");
+      return;
+    }
+
+    window.location.href = 'loading.html'; // Redireciona para a página de carregamento
+  });
+
+  // Redirecionamento para cadastro
+  registerBtn.addEventListener('click', () => {
+    window.location.href = 'cadastro.html';
+  });
+
+  // Animações de digitação
+  setTimeout(() => {
+    titulo.classList.add('typing-active', 'cursor-blink');
+    setTimeout(() => {
+      titulo.classList.remove('cursor-blink');
+      titulo.style.borderRight = 'none';
+    }, 1600); 
+  }, 500);
+
+  setTimeout(() => {
+    subtitulo.classList.add('typing-active', 'cursor-blink');
+    setTimeout(() => {
+      subtitulo.classList.remove('cursor-blink');
+      subtitulo.style.borderRight = 'none';
+    }, 1600);
+  }, 2200);
+</script>
+
+
+</body>
+</html>

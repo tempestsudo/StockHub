@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Recuperar Senha | StockHUB</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+   * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: url('img/windows-chan.png') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+}
+
+.container {
+  background: rgba(255, 255, 255, 0.10);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 40px 35px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgb(0, 38, 255);
+}
+
+.container h2 {
+  margin-bottom: 25px;
+  font-weight: 600;
+  font-size: 26px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.container input {
+  width: 100%;
+  padding: 13px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 15px;
+  outline: none;
+  transition: background-color 0.2s ease;
+}
+
+.container input::placeholder {
+  color: #eee;
+}
+
+.container input:focus {
+  background-color: rgba(255,255,255,0.25);
+}
+
+.container button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #00b4db, #0083b0);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.container button:hover {
+  background: linear-gradient(to right, #007ba7, #005f7a);
+  transform: scale(1.02);
+}
+
+.confirmacao {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 25px;
+  padding: 20px;
+}
+
+.confirmacao p {
+  font-size: 16px;
+  color: #fff;
+  line-height: 1.6;
+}
+
+.confirmacao button {
+  margin-top: 10px;
+  padding: 12px 24px;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.confirmacao button:hover {
+  background: linear-gradient(to right, #0069d9, #004a99);
+}
+  </style>
+</head>
+<body>
+
+<!-- FORMULÁRIO ENVOLVIDO NA DIV CONTAINER -->
+<div class="container" id="formulario">
+  <h2>Recuperar Senha</h2>
+  <form onsubmit="enviar(event)">
+    <input type="text" id="cnpj" placeholder="CNPJ" required />
+    <input type="email" id="email" placeholder="Email empresarial" required />
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+<!-- TELA DE CONFIRMAÇÃO -->
+<div class="container confirmacao" id="confirmacao">
+  <h2>Código enviado</h2>
+  <p>Um código foi enviado ao e-mail fornecido.</p>
+  <button onclick="voltar()">Voltar ao login</button>
+</div>
+
+<script>
+  // Obtem os elementos dos campos
+  const cnpjInput = document.getElementById('cnpj');
+  const emailInput = document.getElementById('email');
+
+  cnpjInput.addEventListener('input', function () {
+    this.value = this.value.replace(/\D/g, '');
+  });
+
+  function enviar(event) {
+    event.preventDefault(); // Impede o envio do formulário
+
+    const cnpj = cnpjInput.value.trim();
+    const email = emailInput.value.trim();
+
+    if (cnpj === '' || email === '') {
+      alert('Por favor, preencha todos os campos.');
+      return;
+    }
+
+    document.getElementById('formulario').style.display = 'none';
+    document.getElementById('confirmacao').style.display = 'flex';
+  }
+
+  function voltar() {
+    window.location.href = "index.html"; // Ajuste o link conforme necessário
+  }
+</script>
+
+</body>
+</html>
