@@ -5,12 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Loading</title>
   <style>
+    
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
+    
+    @keyframes loading {
+      to {
+        width: 100%;
+      }
+    }
+    
     body {
       background-color: #000;
       color: #fff;
@@ -38,12 +45,6 @@
       animation: loading 7s linear forwards;
     }
 
-    @keyframes loading {
-      to {
-        width: 100%;
-      }
-    }
-
     #complete-message {
       font-size: 1.2rem;
       font-weight: 500;
@@ -54,6 +55,7 @@
     #complete-message.show {
       opacity: 1;
     }
+    
   </style>
 </head>
 <body>
@@ -69,10 +71,10 @@
       document.getElementById('loader').style.display = 'none';
       document.getElementById('complete-message').classList.add('show');
 
-      // Redireciona após meio segundo (tempo para a mensagem aparecer)
+      // Redirecionamento
       setTimeout(() => {
         window.location.href = "painel.html";
-      }, 500);
+      }, 1000);
     }, 7000);
   </script>
 
